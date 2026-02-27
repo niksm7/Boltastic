@@ -1,0 +1,59 @@
+name: incident-alert
+description: Automated incident alert workflow. Creates bug ticket, and Slack notification.
+triggers:
+  - type: manual
+
+inputs:
+  - name: incident_id
+    type: string
+    required: true
+    description: Incident ID
+  - name: incident_summary
+    type: string
+    required: true
+    description: Summary of the incident
+  - name: incident_description
+    type: string
+    required: true
+    description: Detailed description of the incident
+  - name: github_pr_url
+    type: string
+    required: false
+    description: Url of the PR created in github.
+
+steps:
+  - name: create_jira_task
+    type: jira.pushToService
+    connector-id: 44b1c510-1a8c-48b7-a274-a79b0877751d
+    with:
+      incident:
+        issueType: "10042"
+        summary: "Incident: {{ inputs.incident_summary }}"
+        labels:
+          - "Dev_Alerts"
+        description: |
+          {{ inputs.incident_description }}
+          
+          Workflow Run ID: {{ workflow.id }}
+          {% if inputs.github_pr_url %}
+            PR: {{ inputs.github_pr_url }}
+          {% endif %}
+
+  - name: notify_slack
+    type: slack
+    connector-id: c6abd2c5-3f0b-4fa5-91bb-a07fda7e2e28
+    with:
+      message: |
+        🚨 *Incident Detected*
+        
+        *Summary:* {{ inputs.incident_summary }}
+        
+        {% if inputs.github_pr_url %}
+        PR: {{ inputs.github_pr_url }}
+        {% endif %}
+        
+        {% if steps.create_jira_ticket.result.key %}
+        *Jira:* {{ steps.create_jira_task.output.url }}
+        {% endif %}
+        
+        Workflow: {{ workflow.name }}

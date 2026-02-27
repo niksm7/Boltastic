@@ -1,0 +1,64 @@
+{
+  "index_patterns": ["crm-activities-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "CRM activity logs including calls, emails, meetings, and tasks. Tracks interactions with accounts and opportunities for sales pipeline analysis."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "activity_type": {
+          "type": "keyword"
+        },
+        "activity_subtype": {
+          "type": "keyword"
+        },
+        "account_id": {
+          "type": "keyword"
+        },
+        "account_name": {
+          "type": "keyword"
+        },
+        "opportunity_id": {
+          "type": "keyword"
+        },
+        "opportunity_name": {
+          "type": "keyword"
+        },
+        "outcome": {
+          "type": "keyword"
+        },
+        "subject": {
+          "type": "text"
+        },
+        "description": {
+          "type": "text"
+        },
+        "owner_id": {
+          "type": "keyword"
+        },
+        "owner_name": {
+          "type": "keyword"
+        },
+        "duration_minutes": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "keyword"
+        },
+        "priority": {
+          "type": "keyword"
+        },
+        "related_to_type": {
+          "type": "keyword"
+        },
+        "related_to_id": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "index_patterns": ["social-mentions-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "Social media mentions and sentiment analysis. Contains platform-specific mentions, sentiment scores, brand mentions, and engagement metrics."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "platform": {
+          "type": "keyword"
+        },
+        "sentiment_score": {
+          "type": "float"
+        },
+        "sentiment_label": {
+          "type": "keyword"
+        },
+        "mention_text": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 512
+            }
+          }
+        },
+        "brand": {
+          "type": "keyword"
+        },
+        "author_id": {
+          "type": "keyword"
+        },
+        "author_name": {
+          "type": "keyword"
+        },
+        "post_id": {
+          "type": "keyword"
+        },
+        "engagement.likes": {
+          "type": "long"
+        },
+        "engagement.shares": {
+          "type": "long"
+        },
+        "engagement.comments": {
+          "type": "long"
+        },
+        "hashtags": {
+          "type": "keyword"
+        },
+        "language": {
+          "type": "keyword"
+        },
+        "location": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

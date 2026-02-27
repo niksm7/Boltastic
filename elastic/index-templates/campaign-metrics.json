@@ -1,0 +1,58 @@
+{
+  "index_patterns": ["campaign-metrics-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "Marketing campaign performance metrics. Contains CTR, impressions, clicks, spend, conversions, and channel-specific performance data."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "campaign_id": {
+          "type": "keyword"
+        },
+        "campaign_name": {
+          "type": "keyword"
+        },
+        "ctr": {
+          "type": "float"
+        },
+        "impressions": {
+          "type": "long"
+        },
+        "clicks": {
+          "type": "long"
+        },
+        "spend": {
+          "type": "float"
+        },
+        "revenue": {
+          "type": "float"
+        },
+        "conversions": {
+          "type": "long"
+        },
+        "channel": {
+          "type": "keyword"
+        },
+        "ad_group_id": {
+          "type": "keyword"
+        },
+        "ad_id": {
+          "type": "keyword"
+        },
+        "target_audience": {
+          "type": "keyword"
+        },
+        "geography": {
+          "type": "keyword"
+        },
+        "device_type": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

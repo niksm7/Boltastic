@@ -1,0 +1,5 @@
+Name,Trigger_Condition,Action_Plan,Required_Approval
+Play-001,Stalled > 14 Days,"Send the 'Value ROI' case study. If no response in 48 hours, escalate to the Regional Director to initiate a multi-threading email to the prospect's VP.",None
+Play-002,Competitor Mention: TechNova,Deploy the 'TechNova Takedown' deck. Emphasize our superior API uptime and dedicated CSM support. Offer a free 2-week technical PoC.,Sales Engineering Manager
+Play-003,Pricing Objection,"Pivot the conversation to Total Cost of Ownership (TCO). Do not immediately discount. If pushed, offer a maximum 10% discount on onboarding fees only.",VP of Sales
+Play-004,Loss of Champion,Immediately pause technical discussions. Map out the remaining buying committee on LinkedIn. Request an intro to the new decision-maker from the departing champion.,None

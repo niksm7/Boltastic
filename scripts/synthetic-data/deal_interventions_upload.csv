@@ -1,0 +1,5 @@
+Name,Related_Opportunity_ID,Risk_Factor,Agent_Reasoning,Status
+Save GlobalCorp Deal,0068c00000abcdEAAQ,Stalled > 14 Days,No email or meeting activity detected in the last 15 days. Opportunity is stuck in the Negotiation stage. Recommended action: Trigger Play-001 (Value ROI case study).,New
+TechNova Competitor Threat,0068c00000abcdFAAQ,Competitor Mention: TechNova,Prospect explicitly mentioned TechNova's pricing in the latest call transcript. High-value deal ($150k). Needs immediate Sales Engineering support per Play-002.,In Progress
+Acme Corp - Lost Champion,0068c00000abcdGAAQ,Loss of Champion,Primary contact Sarah Jenkins has left the company based on recent email bounce-backs. Deal momentum has stopped entirely. Need to map out remaining buying committee.,New
+Initech Pricing Pushback,0068c00000abcdHAAQ,Pricing Objection,"Client is requesting a 30% discount, which exceeds standard rep limits. Deal velocity has slowed dramatically. Executive intervention required to pivot to Total Cost of Ownership.",New

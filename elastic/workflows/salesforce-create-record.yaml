@@ -1,0 +1,35 @@
+name: salesforce-create-record
+triggers:
+  - type: manual
+description: Creates a new record in Salesforce for a specified object type.
+
+inputs:
+  - name: object_type
+    type: string
+    description: "The API name of the Salesforce object (e.g., deal_interventions__c)"
+    required: false
+    default: "deal_interventions__c"
+  - name: record_data
+    type: string
+    description: "A valid JSON string representing the fields and values to insert."
+    required: true
+
+steps:
+  - name: authenticate
+    type: http
+    with:
+      method: POST
+      url: "https://login.salesforce.com/services/oauth2/token"
+      headers:
+        Content-Type: "application/x-www-form-urlencoded"
+      body: "grant_type=password&client_id=<client_id>&client_secret=<client_secret>&username=nikhilsmankani.4189cb27863b@agentforce.com&password=<password><security_token>"
+
+  - name: create_record
+    type: http
+    with:
+      method: POST
+      url: "https://orgfarm-fa0b9ca427-dev-ed.develop.my.salesforce-setup.com/services/data/v60.0/sobjects/{{inputs.object_type}}/"
+      headers:
+        Authorization: "Bearer {{steps.authenticate.output.data.access_token}}"
+        Content-Type: "application/json"
+      body: "{{inputs.record_data}}"

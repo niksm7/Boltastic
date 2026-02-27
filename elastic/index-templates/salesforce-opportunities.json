@@ -1,0 +1,67 @@
+{
+  "index_patterns": ["salesforce-opportunities-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "Salesforce opportunity pipeline data. Contains opportunity stages, amounts, owners, close dates, and activity timestamps for sales intelligence."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "opportunity_id": {
+          "type": "keyword"
+        },
+        "opportunity_name": {
+          "type": "keyword"
+        },
+        "stage": {
+          "type": "keyword"
+        },
+        "amount": {
+          "type": "float"
+        },
+        "currency": {
+          "type": "keyword"
+        },
+        "close_date": {
+          "type": "date"
+        },
+        "last_activity_at": {
+          "type": "date"
+        },
+        "days_since_last_activity": {
+          "type": "integer"
+        },
+        "owner_id": {
+          "type": "keyword"
+        },
+        "owner_name": {
+          "type": "keyword"
+        },
+        "account_id": {
+          "type": "keyword"
+        },
+        "account_name": {
+          "type": "keyword"
+        },
+        "probability": {
+          "type": "float"
+        },
+        "lead_source": {
+          "type": "keyword"
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "is_closed": {
+          "type": "boolean"
+        },
+        "is_won": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

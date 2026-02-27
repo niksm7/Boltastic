@@ -1,0 +1,28 @@
+name: fetch-github-code
+triggers:
+  - type: manual
+description: Fetches the raw text content of a file from a GitHub repository.
+
+inputs:
+  - name: owner
+    type: string
+    default: "niksm7"
+  - name: repo
+    type: string
+    default: "nova-web"
+  - name: path
+    type: string
+    required: true
+    description: "The path to the file (e.g., 'login.html' or 'style.css')"
+  - name: branch
+    type: string
+    default: "main"
+
+steps:
+  - name: fetch_code
+    type: http
+    with:
+      method: GET
+      url: "https://raw.githubusercontent.com/{{inputs.owner}}/{{inputs.repo}}/{{inputs.branch}}/{{inputs.path}}"
+      headers:
+        Accept: "application/vnd.github.v3.raw"

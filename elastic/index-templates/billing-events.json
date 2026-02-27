@@ -1,0 +1,65 @@
+{
+  "index_patterns": ["billing-events-*"],
+  "template": {
+    "settings": {
+    },
+    "mappings": {
+      "_meta": {
+        "description": "Billing and revenue events. Contains invoice events, payment transactions, subscription changes, and product revenue tracking."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "event_type": {
+          "type": "keyword"
+        },
+        "amount": {
+          "type": "float"
+        },
+        "currency": {
+          "type": "keyword"
+        },
+        "customer_id": {
+          "type": "keyword"
+        },
+        "customer_name": {
+          "type": "keyword"
+        },
+        "product_id": {
+          "type": "keyword"
+        },
+        "product_name": {
+          "type": "keyword"
+        },
+        "subscription_id": {
+          "type": "keyword"
+        },
+        "invoice_id": {
+          "type": "keyword"
+        },
+        "transaction_id": {
+          "type": "keyword"
+        },
+        "payment_method": {
+          "type": "keyword"
+        },
+        "billing_period": {
+          "type": "keyword"
+        },
+        "region": {
+          "type": "keyword"
+        },
+        "tax_amount": {
+          "type": "float"
+        },
+        "discount_amount": {
+          "type": "float"
+        },
+        "status": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

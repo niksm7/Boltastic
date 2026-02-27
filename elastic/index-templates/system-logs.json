@@ -1,0 +1,67 @@
+{
+  "index_patterns": ["system-logs-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "System logs and infrastructure events for SRE monitoring. Contains authentication events, application logs, host metrics, and error tracking."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "log.level": {
+          "type": "keyword"
+        },
+        "message": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "host.name": {
+          "type": "keyword"
+        },
+        "host.ip": {
+          "type": "ip"
+        },
+        "event.action": {
+          "type": "keyword"
+        },
+        "event.outcome": {
+          "type": "keyword"
+        },
+        "user.name": {
+          "type": "keyword"
+        },
+        "user.id": {
+          "type": "keyword"
+        },
+        "error.type": {
+          "type": "keyword"
+        },
+        "error.message": {
+          "type": "text"
+        },
+        "service.name": {
+          "type": "keyword"
+        },
+        "service.version": {
+          "type": "keyword"
+        },
+        "http.request.method": {
+          "type": "keyword"
+        },
+        "http.response.status_code": {
+          "type": "integer"
+        },
+        "source.ip": {
+          "type": "ip"
+        }
+      }
+    }
+  }
+}

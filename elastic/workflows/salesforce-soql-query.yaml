@@ -1,0 +1,29 @@
+name: salesforce-soql-query
+triggers:
+  - type: manual
+description: Executes a SOQL query against live Salesforce data to fetch specific records.
+
+inputs:
+  - name: soql_query
+    type: string
+    description: "A valid SOQL query string (e.g., SELECT Id, Name FROM Account LIMIT 5)"
+    required: true
+
+steps:
+  - name: authenticate
+    type: http
+    with:
+      method: POST
+      url: "https://login.salesforce.com/services/oauth2/token"
+      headers:
+        Content-Type: "application/x-www-form-urlencoded"
+      body: "grant_type=password&client_id=<client_id>&client_secret=<client_secret>&username=nikhilsmankani.4189cb27863b@agentforce.com&password=<password><security_token>"
+
+  - name: execute_query
+    type: http
+    with:
+      method: GET
+      url: "https://orgfarm-fa0b9ca427-dev-ed.develop.my.salesforce-setup.com/services/data/v60.0/query/?q={{inputs.soql_query}}"
+      headers:
+        Authorization: "Bearer {{steps.authenticate.output.data.access_token}}"
+        Content-Type: "application/json"

@@ -1,0 +1,61 @@
+{
+  "index_patterns": ["cost-centers-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "Cost center allocation and infrastructure costs. Tracks costs by service, region, and incident for financial impact analysis."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "cost_center_id": {
+          "type": "keyword"
+        },
+        "cost_center_name": {
+          "type": "keyword"
+        },
+        "cost": {
+          "type": "float"
+        },
+        "currency": {
+          "type": "keyword"
+        },
+        "service": {
+          "type": "keyword"
+        },
+        "service_type": {
+          "type": "keyword"
+        },
+        "region": {
+          "type": "keyword"
+        },
+        "incident_id": {
+          "type": "keyword"
+        },
+        "resource_type": {
+          "type": "keyword"
+        },
+        "resource_id": {
+          "type": "keyword"
+        },
+        "usage_hours": {
+          "type": "float"
+        },
+        "unit_cost": {
+          "type": "float"
+        },
+        "department": {
+          "type": "keyword"
+        },
+        "project_id": {
+          "type": "keyword"
+        },
+        "tags": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

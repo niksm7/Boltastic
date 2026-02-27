@@ -1,0 +1,52 @@
+{
+  "index_patterns": ["frontend-errors-*"],
+  "template": {
+    "settings": {},
+    "mappings": {
+      "_meta": {
+        "description": "Frontend application errors and exceptions. Contains JavaScript errors, React component failures, DOM issues, and user-facing error events."
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": { "type": "text" },
+            "stack": { "type": "text" },
+            "type": { "type": "keyword" },
+            "name": { "type": "keyword" }
+          }
+        },
+        "url": { "type": "keyword" },
+        "url_path": { "type": "keyword" },
+        "user_agent": { "type": "text" },
+        "component": { "type": "keyword" },
+        "component_name": { "type": "keyword" },
+        "session_id": { "type": "keyword" },
+        "user_id": { "type": "keyword" },
+        "browser": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "keyword" },
+            "version": { "type": "keyword" }
+          }
+        },
+        "os": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "keyword" }
+          }
+        },
+        "viewport": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}
